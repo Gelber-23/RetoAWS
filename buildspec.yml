@@ -1,0 +1,31 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto21
+    commands:
+      - echo "Installing Docker and Gradle"
+      - chmod +x gradlew
+
+  pre_build:
+    commands:
+      - echo Logging in Amazon ECR..
+      - aws --version
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/z7i8c3d3
+  build:
+    commands:
+      - echo Build started on `date`
+      - ./gradlew clean bootJar
+      - echo Building Docker image..
+      - docker build -t person-microservice .
+      - docker tag person-microservice:latest $REPOSITORY_URI:$IMAGE_TAG
+  post_build:
+    commands:
+      - echo Pushing Docker image..
+      - docker push public.ecr.aws/z7i8c3d3/person-microservice:latest
+      - echo Writing image definitions..
+      - printf '[{"name":"person-microservice","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.us-east-1.amazonaws.com/person-microservice:latest > imagedefinitions.json
+artifacts:
+  files:
+    - imagedefinitions.json
