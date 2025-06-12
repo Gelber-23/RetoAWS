@@ -60,5 +60,5 @@ jar {
 
 bootJar {
 	archiveFileName = 'app.jar'
-	mainClass.set('co.com.pragma.aws.awsproyect.AwsProyectApplication')
+	mainClass.set('com.pragma.aws.awsproyect.AwsProyectApplication')
 }
