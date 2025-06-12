@@ -2,9 +2,9 @@ spring:
   application:
     name: awsProyect
   datasource:
-    url: jdbc:mysql://localhost:3306/AWS
-    username: root
-    password: 123456789
+    url: jdbc:mysql://retoaws.ckdeiesu8n6g.us-east-1.rds.amazonaws.com/person
+    username: admin
+    password: .Password123
   jpa:
     hibernate:
       ddl-auto: update
