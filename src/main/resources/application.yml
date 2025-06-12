@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: awsProyect
+  datasource:
+    url: jdbc:mysql://localhost:3306/AWS
+    username: root
+    password: 123456789
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+appDescription: "awsProyect System"
+appVersion: "1.0"
+server:
+  port: 8081
