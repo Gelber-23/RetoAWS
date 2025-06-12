@@ -18,7 +18,7 @@ phases:
       - echo Build started on `date`
       - ./gradlew clean bootJar
       - echo Building Docker image..
-      - docker build -t retoaws
+      - docker build -t retoaws .
       - docker tag retoaws:latest public.ecr.aws/z7i8c3d3/retoaws:latest
   post_build:
     commands:
