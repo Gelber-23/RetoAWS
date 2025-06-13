@@ -12,9 +12,9 @@ spring:
       secretsmanager:
         enabled: true
   datasource:
-    url: jdbc-secretsmanager${dbhost}
-    username: rds_secret
-    driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerMySQLDriver
+    url: ${dbhost}
+    username: ${dbuser}
+    password: ${rds:password}
   jpa:
     hibernate:
       ddl-auto: update
