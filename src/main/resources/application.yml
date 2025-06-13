@@ -1,6 +1,16 @@
 spring:
   application:
     name: awsProyect
+  cloud:
+    aws:
+      region:
+        static: us-east-1
+      credentials:
+        profile-name: default
+      parameterstore:
+        enabled: true
+      secretsmanager:
+        enabled: true
   datasource:
     url: jdbc-secretsmanager${dbhost}
     username: rds_secret
