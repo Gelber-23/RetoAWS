@@ -11,8 +11,6 @@ spring:
     show-sql: true
 appDescription: "awsProyect System"
 appVersion: "1.0"
-server:
-  port: 8081
 management:
   endpoints:
     web:
