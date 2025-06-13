@@ -1,4 +1,8 @@
 version: 0.2
+env:
+  secrets-manager:
+    DOCKERHUB_PASS: "/dockerhub/credentials:password"
+    DOCKERHUB_USERNAME: "/dockerhub/credentials:username"
 
 phases:
   install:
@@ -12,6 +16,7 @@ phases:
     commands:
       - echo Logging in Amazon ECR..
       - aws --version
+      - docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS
       - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/z7i8c3d3
   build:
     commands:
