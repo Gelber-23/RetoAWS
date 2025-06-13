@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc-secretsmanager${dbhost}
     username: rds_secret
-    password: com.amazonaws.secretsmanager.sql.AWSSecretsManagerMySQLDriver
+    driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerMySQLDriver
   jpa:
     hibernate:
       ddl-auto: update
