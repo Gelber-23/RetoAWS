@@ -49,7 +49,9 @@ dependencies {
 
 	testImplementation "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
 
-
+	implementation platform("io.awspring.cloud:spring-cloud-aws-dependencies:3.0.1")
+	implementation 'io.awspring.cloud:spring-cloud-aws-starter-parameter-store'
+	implementation 'io.awspring.cloud:spring-cloud-aws-starter-secrets-manager'
 }
 
 tasks.named('test') {
