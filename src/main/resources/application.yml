@@ -12,9 +12,9 @@ spring:
       secretsmanager:
         enabled: true
   datasource:
-    url: ${dbhost}
-    username: ${dbuser}
-    password: ${rds:password}
+    url: ${jdbc_prefix}${rds_secret.host}:${rds_secret.port}/${rds_secret.dbname}
+    username: ${rds_secret.username}
+    password: ${rds_secret.password}
   jpa:
     hibernate:
       ddl-auto: update
