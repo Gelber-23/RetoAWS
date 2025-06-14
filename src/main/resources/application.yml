@@ -12,9 +12,9 @@ spring:
         enabled: true
 
   datasource:
-    url:   ${jdbc_prefix}${rds_secret:host}:${rds_secret:port}/${rds_secret:dbname}
-    username: ${rds_secret:username}
-    password: ${rds_secret:password}
+    url:   ${jdbc_prefix}${host}:${port}/${dbname}
+    username: ${username}
+    password: ${password}
 
 jpa:
   hibernate:
