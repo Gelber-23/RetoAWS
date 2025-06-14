@@ -1,6 +1,5 @@
 spring:
-  application:
-    name: awsProyect
+
   cloud:
     aws:
       region:
@@ -12,15 +11,18 @@ spring:
       secretsmanager:
         enabled: true
   datasource:
-    url: ${jdbc_prefix}${rds_secret.host}:${rds_secret.port}/${rds_secret.dbname}
+    url:   ${jdbc_prefix}${rds_secret.host}:${rds_secret.port}/${rds_secret.dbname}
     username: ${rds_secret.username}
     password: ${rds_secret.password}
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+
+jpa:
+  hibernate:
+    ddl-auto: update
+  show-sql: true
+
 appDescription: "awsProyect System"
 appVersion: "1.0"
+
 management:
   endpoints:
     web:
